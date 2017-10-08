@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<title>ASP.io</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Source of reCAPTCHA widget -->
+<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+<!-- Source of jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Source of 'Lato' font to style all pages uniformly in a modern looking font -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+<!-- Link to CSS file to separate most of the styling from structure -->
+<link rel="stylesheet" type="text/css" href="css.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card-2 w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">The seating plan for your event!</h1>
+  <p class="w3-xlarge">Generate it from scratch within seconds (if you already have a list of invitees)!</p>
+  <div style="display:flex;justify-content:center;align-items:center;">
+    <form action="?" method="POST">
+      <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Ley6xUUAAAAAH2TqhVolOs_zGPijEmhoL6DemVA" data-theme="dark"></div>
+    </form>
+  </div>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" style="cursor:not-allowed" onclick="toPI()" id="getStartedBtn">Get Started</button>
+</header>
+
+<!-- "Get Started"-button mechanics -->
+<script>
+  /* Function to activate "Get Started" button if reCAPTCHA widget was successful */
+  function recaptchaCallback(){
+    $('#getStartedBtn').css('cursor', 'default');
+    $('#getStartedBtn').removeAttr('disabled');
+    console.log("function triggered");
+  };
+  /* Function to redirect to participants input page if "Continue" button clicked */
+  function toPI(){
+    window.location.href="participants input.html";
+  };
+</script>
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">
+<p>With ❤  from Johann Klopp</p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
